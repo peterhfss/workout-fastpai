@@ -1,5 +1,5 @@
 from src.models.settings.metadata import metadata
-from sqlalchemy import Table ,Column, Integer, String, Float
+from sqlalchemy import ForeignKey, Table ,Column, Integer, String, Float
 
 Athletes = Table(
     "athletes",
@@ -11,4 +11,6 @@ Athletes = Table(
     Column("height", Float),
     Column("weight", Float),
     Column("gender", String),
+    Column("categorie_id", Integer, ForeignKey("categories.id")),
+    Column("training_center_id", Integer, ForeignKey("training_center.id")),
 )
